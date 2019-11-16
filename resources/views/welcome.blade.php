@@ -8,7 +8,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <!-- Styles -->
         <style>
             html, body {
@@ -46,10 +46,17 @@
 
             .title {
                 font-size: 84px;
+                font-family:serif;
+                font-style: italic;
+                font-weight:400;
+                color: #767A81;
+            }
+            .fondo{
+                background-image: url('../img/descarga.jpg'); 
             }
 
             .links > a {
-                color: #636b6f;
+                color: #0C0B0B;
                 padding: 0 25px;
                 font-size: 13px;
                 font-weight: 600;
@@ -63,7 +70,29 @@
             }
         </style>
     </head>
-    <body>
+    <body class="fondo">
+            <div class="container">
+                    <ul  class="navbar navbar-light nav justify-content-end" style="background-color: #767A81; " >
+                            <li class="nav-item">
+                              <a class="nav-link active" href="#">Inicio</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Menú</a>
+                              <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Tarjeta de la biblioteca</a>
+                                <a class="dropdown-item" href="#">Ejemplares Guardados</a>
+                                <a class="dropdown-item" href="#">Buscar Historial</a>
+                              </div>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="#">Acerca de este Sitio</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link " href="#" >Ayuda</a>
+                            </li>
+                          </ul>
+
+                  
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -80,21 +109,21 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+                <div class="title m-b-md" >
+                  <u>  BIBLIOTECA DIGITAL </u>
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="https://laravel.com/docs">INICIO DE SESION</a>
+                    <a href="https://laracasts.com">DESCUBRE NUESTRAS COLECCIONES</a>
+                    <a href="https://laravel-news.com">ACERCA DE ESTE SITIO</a>
+                    <a href="https://blog.laravel.com">NAVEGAR POR ETIQUETAS</a>
                 </div>
             </div>
         </div>
+         </div>
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </body>
 </html>
