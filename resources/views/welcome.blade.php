@@ -73,9 +73,6 @@
     <body class="fondo">
             <div class="container">
                     <ul  class="navbar navbar-light nav justify-content-end" style="background-color: #767A81; " >
-                            <li class="nav-item">
-                              <a class="nav-link active" href="#">Inicio</a>
-                            </li>
                             <li class="nav-item dropdown">
                               <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Menú</a>
                               <div class="dropdown-menu">
@@ -114,8 +111,8 @@
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">INICIO DE SESION</a>
-                    <a href="https://laracasts.com">DESCUBRE NUESTRAS COLECCIONES</a>
+                    <a href="{{url('usuarios/')}}">INICIO DE SESION</a>
+                    <a href="{{url('colecciones/')}}">DESCUBRE NUESTRAS COLECCIONES</a>
                     <a href="https://laravel-news.com">ACERCA DE ESTE SITIO</a>
                     <a href="https://blog.laravel.com">NAVEGAR POR ETIQUETAS</a>
                 </div>
