@@ -74,10 +74,10 @@
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Acerca de este Sitio</a>
+          <a class="nav-link" href="{{url('sitio/')}}">Acerca de este Sitio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="#" >Ayuda</a>
+          <a class="nav-link " href="{{url('colecciones/')}}" >Inicio</a>
         </li>
       </ul>
 <div class="title m-b-md" >
@@ -96,8 +96,8 @@
                                     <li>Libros</li>
                                     <li>Tesis</li>
                               </ul>
-                              <a href="#" class="card-link">Acerca de este sitio</a>
-                              <a href="#" class="card-link">Ayuda</a>
+                              <a href="{{url('sitio/')}}" class="card-link">Acerca de este sitio</a>
+                              <a href="{{url('colecciones/')}}" class="card-link">Inicio</a>
                             </div>
                           </div>
                           <br>

@@ -17,3 +17,4 @@ Route::get('/', function () {
 
 Route::resource('usuarios', 'UsuarioController');
 Route::resource('colecciones', 'ColeccionesController');
+Route::resource('sitio', 'AcercaDeController');

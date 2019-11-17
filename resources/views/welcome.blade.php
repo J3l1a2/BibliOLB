@@ -82,10 +82,10 @@
                               </div>
                             </li>
                             <li class="nav-item">
-                              <a class="nav-link" href="#">Acerca de este Sitio</a>
+                              <a class="nav-link" href="{{url('sitio/')}}">Acerca de este Sitio</a>
                             </li>
                             <li class="nav-item">
-                              <a class="nav-link " href="#" >Ayuda</a>
+                              <a class="nav-link " href="{{url('colecciones/')}}" >Inicio</a>
                             </li>
                           </ul>
 
@@ -113,7 +113,7 @@
                 <div class="links">
                     <a href="{{url('usuarios/')}}">INICIO DE SESION</a>
                     <a href="{{url('colecciones/')}}">DESCUBRE NUESTRAS COLECCIONES</a>
-                    <a href="https://laravel-news.com">ACERCA DE ESTE SITIO</a>
+                    <a href="{{url('sitio/')}}">ACERCA DE ESTE SITIO</a>
                     <a href="https://blog.laravel.com">NAVEGAR POR ETIQUETAS</a>
                 </div>
             </div>
