@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\usuario;
+use App\electronicos;
 use Illuminate\Http\Request;
 
-class UsuarioController extends Controller
+class ElectronicosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,9 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        return view('usuarios.usuario');
+        //
+        $electronico=electronicos::orderBy('id','DESC')->paginate(5);
+        return view('biblio.electronicos', compact('electronico'));
     }
 
     /**
@@ -25,8 +27,6 @@ class UsuarioController extends Controller
     public function create()
     {
         //
-        return view('usuarios.form');
-
     }
 
     /**
@@ -38,23 +38,15 @@ class UsuarioController extends Controller
     public function store(Request $request)
     {
         //
-        $request->validate([
-            'nombre' => 'required',
-            'contra' => 'required',
-            'telefono' => 'required',
-            'codigo' => 'required',
-        ]);
-        usuarios::create($request->all());
-        return redirect()->route('usuarios.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\usuario  $usuario
+     * @param  \App\electronicos  $electronicos
      * @return \Illuminate\Http\Response
      */
-    public function show(usuario $usuario)
+    public function show(electronicos $electronicos)
     {
         //
     }
@@ -62,40 +54,40 @@ class UsuarioController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\usuario  $usuario
+     * @param  \App\electronicos  $electronicos
      * @return \Illuminate\Http\Response
      */
-    public function edit(usuario $usuario)
+    public function edit(electronicos $electronicos)
     {
         //
-        $usuario=usuarios::find('$id');
-        return view('usuarios.form', compact('usuario'));
+        $electronico=electronicos::find('$id');
+        return view('electronicos.form', compact('electronico'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\usuario  $usuario
+     * @param  \App\electronicos  $electronicos
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, usuario $usuario)
+    public function update(Request $request, electronicos $electronicos)
     {
         //
-        usuarios::find('$id')->update($request->all());
-        return redirect()->route('usuarios.index')->with('success', 'Exitosa Actualizacion');
+        electronicos::find('$id')->update($request->all());
+        return redirect()->route('electronicos.index')->with('success', 'Exitosa Actualizacion');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\usuario  $usuario
+     * @param  \App\electronicos  $electronicos
      * @return \Illuminate\Http\Response
      */
-    public function destroy(usuario $usuario)
+    public function destroy(electronicos $electronicos)
     {
         //
-        usuarios::find('$id')->delete();
-        return redirect('/usuarios');
+        electronicos::find('$id')->delete();
+        return redirect('/biblio/electronicos');
     }
 }

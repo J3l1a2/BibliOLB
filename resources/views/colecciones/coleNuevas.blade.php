@@ -112,31 +112,31 @@
                 <div class="panel-body">
                     <div class="row">
                     <div class="col-md-3 img1">
-                        <img src="img/images.png"><center><u>libros impresos</u></center>
+                        <img src="img/images.png"><center><a href="{{url('biblio/impresos/')}}" class="card-link">Libros impresos</a></center>
                     </div>
                     <div class="col-md-3 ">
-                        <img src="img/descarga.png"><center><u>libros electronicos</u></center> 
+                        <img src="img/descarga.png"><center><a href="{{url('biblio/electronicos/')}}" class="card-link">libros electronicos</a></center> 
                     </div>
                     <div class="col-md-3 img9">
-                        <img src="img/descarga1.png"><center><u>Articulos de revistas</u></center> 
+                        <img src="img/descarga1.png"><center><a href="{{url('biblio/revistas/')}}" class="card-link">Articulos de revistas</a></center> 
                     </div>
                     <div class="col-md-3 img2">
-                        <img src="img/descarga2.png"><center><u>Tesis</u></center>   
+                        <img src="img/descarga2.png"><center><a href="{{url('biblio/tesis/')}}" class="card-link">Tesis</a></center>   
                     </div>
                     <div class="col-md-3 img3">
-                        <img src="img/descarga3.png"><center><u>Fotografias</u></center>   
+                        <img src="img/descarga3.png"><center><a href="{{url('biblio/fotografias/')}}" class="card-link">Fotografias</a></center>   
                     </div>
                     <div class="col-md-3 img4">
-                        <img src="img/descarga4.png"><center><u>Obras de arte</u></center>   
+                        <img src="img/descarga4.png"><center><a href="{{url('biblio/arte/')}}" class="card-link">Obras de arte</a></center>   
                     </div>
                     <div class="col-md-3 img5">
-                        <img src="img/images1.png"><center><u>Artesanías</u></center>   
+                        <img src="img/images1.png"><center><a href="{{url('biblio/artesanias/')}}" class="card-link">Artesanías</a></center>   
                     </div>
                     <div class="col-md-3 img6">
-                        <img src="img/images2.png"><center><u>Objetos medicos</u></center>   
+                        <img src="img/images2.png"><center><a href="{{url('biblio/Obmedicos/')}}" class="card-link">Objetos medicos</a></center>   
                     </div>
                     <div class="col-md-3 img7">
-                        <img src="img/descarga5.png"><center><u>Afiches</u></center>   
+                        <img src="img/descarga5.png"><center><a href="{{url('biblio/afiches/')}}" class="card-link">Afiches</a></center>   
                     </div>
                 </div>
             </div>

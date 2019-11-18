@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\usuario;
+use App\artesanias;
 use Illuminate\Http\Request;
 
-class UsuarioController extends Controller
+class ArtesaniasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,9 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        return view('usuarios.usuario');
+        //
+        $artesania=artesanias::orderBy('id','DESC')->paginate(5);
+        return view('biblio.artesanias', compact('artesania'));
     }
 
     /**
@@ -25,8 +27,6 @@ class UsuarioController extends Controller
     public function create()
     {
         //
-        return view('usuarios.form');
-
     }
 
     /**
@@ -38,23 +38,15 @@ class UsuarioController extends Controller
     public function store(Request $request)
     {
         //
-        $request->validate([
-            'nombre' => 'required',
-            'contra' => 'required',
-            'telefono' => 'required',
-            'codigo' => 'required',
-        ]);
-        usuarios::create($request->all());
-        return redirect()->route('usuarios.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\usuario  $usuario
+     * @param  \App\artesanias  $artesanias
      * @return \Illuminate\Http\Response
      */
-    public function show(usuario $usuario)
+    public function show(artesanias $artesanias)
     {
         //
     }
@@ -62,40 +54,40 @@ class UsuarioController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\usuario  $usuario
+     * @param  \App\artesanias  $artesanias
      * @return \Illuminate\Http\Response
      */
-    public function edit(usuario $usuario)
+    public function edit(artesanias $artesanias)
     {
         //
-        $usuario=usuarios::find('$id');
-        return view('usuarios.form', compact('usuario'));
+        $artesania=artesanias::find('$id');
+        return view('artesanias.form', compact('artesania'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\usuario  $usuario
+     * @param  \App\artesanias  $artesanias
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, usuario $usuario)
+    public function update(Request $request, artesanias $artesanias)
     {
         //
-        usuarios::find('$id')->update($request->all());
-        return redirect()->route('usuarios.index')->with('success', 'Exitosa Actualizacion');
+        artesanias::find('$id')->update($request->all());
+        return redirect()->route('artesanias.index')->with('success', 'Exitosa Actualizacion');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\usuario  $usuario
+     * @param  \App\artesanias  $artesanias
      * @return \Illuminate\Http\Response
      */
-    public function destroy(usuario $usuario)
+    public function destroy(artesanias $artesanias)
     {
         //
-        usuarios::find('$id')->delete();
-        return redirect('/usuarios');
+        artesanias::find('$id')->delete();
+        return redirect('/biblio/artesanias');
     }
 }

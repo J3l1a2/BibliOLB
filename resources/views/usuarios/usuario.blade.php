@@ -62,6 +62,7 @@
                                             </div> 
                                                  <br>   
                                                 <button type="submit" class="btn btn-primary btn-lg btn-block" >Ingresar</button>
+                                                <button type="submit" class="btn btn-lg btn-block" >Registrase</button>
                                     </form>         
                 </div>
             </div>

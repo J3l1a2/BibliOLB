@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\usuario;
+use App\obmedicos;
 use Illuminate\Http\Request;
 
-class UsuarioController extends Controller
+class ObmedicosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,9 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        return view('usuarios.usuario');
+        //
+        $medicos=obmedicos::orderBy('id','DESC')->paginate(5);
+        return view('biblio.obmedicos', compact('medicos'));
     }
 
     /**
@@ -25,8 +27,6 @@ class UsuarioController extends Controller
     public function create()
     {
         //
-        return view('usuarios.form');
-
     }
 
     /**
@@ -38,23 +38,15 @@ class UsuarioController extends Controller
     public function store(Request $request)
     {
         //
-        $request->validate([
-            'nombre' => 'required',
-            'contra' => 'required',
-            'telefono' => 'required',
-            'codigo' => 'required',
-        ]);
-        usuarios::create($request->all());
-        return redirect()->route('usuarios.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\usuario  $usuario
+     * @param  \App\obmedicos  $obmedicos
      * @return \Illuminate\Http\Response
      */
-    public function show(usuario $usuario)
+    public function show(obmedicos $obmedicos)
     {
         //
     }
@@ -62,40 +54,40 @@ class UsuarioController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\usuario  $usuario
+     * @param  \App\obmedicos  $obmedicos
      * @return \Illuminate\Http\Response
      */
-    public function edit(usuario $usuario)
+    public function edit(obmedicos $obmedicos)
     {
         //
-        $usuario=usuarios::find('$id');
-        return view('usuarios.form', compact('usuario'));
+        $medicos=obmedicos::find('$id');
+        return view('obmedicos.form', compact('medicos'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\usuario  $usuario
+     * @param  \App\obmedicos  $obmedicos
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, usuario $usuario)
+    public function update(Request $request, obmedicos $obmedicos)
     {
         //
-        usuarios::find('$id')->update($request->all());
-        return redirect()->route('usuarios.index')->with('success', 'Exitosa Actualizacion');
+        obmedicos::find('$id')->update($request->all());
+        return redirect()->route('obmedicos.index')->with('success', 'Exitosa Actualizacion');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\usuario  $usuario
+     * @param  \App\obmedicos  $obmedicos
      * @return \Illuminate\Http\Response
      */
-    public function destroy(usuario $usuario)
+    public function destroy(obmedicos $obmedicos)
     {
         //
-        usuarios::find('$id')->delete();
-        return redirect('/usuarios');
+        obmedicos::find('$id')->delete();
+        return redirect('/biblio/obmedicos');
     }
 }

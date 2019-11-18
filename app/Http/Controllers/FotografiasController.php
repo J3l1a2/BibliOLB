@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\usuario;
+use App\fotografias;
 use Illuminate\Http\Request;
 
-class UsuarioController extends Controller
+class FotografiasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,9 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        return view('usuarios.usuario');
+        //
+        $fotografia=fotografias::orderBy('id','DESC')->paginate(5);
+        return view('biblio.fotografias', compact('fotografia'));
     }
 
     /**
@@ -25,8 +27,6 @@ class UsuarioController extends Controller
     public function create()
     {
         //
-        return view('usuarios.form');
-
     }
 
     /**
@@ -38,23 +38,15 @@ class UsuarioController extends Controller
     public function store(Request $request)
     {
         //
-        $request->validate([
-            'nombre' => 'required',
-            'contra' => 'required',
-            'telefono' => 'required',
-            'codigo' => 'required',
-        ]);
-        usuarios::create($request->all());
-        return redirect()->route('usuarios.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\usuario  $usuario
+     * @param  \App\fotografias  $fotografias
      * @return \Illuminate\Http\Response
      */
-    public function show(usuario $usuario)
+    public function show(fotografias $fotografias)
     {
         //
     }
@@ -62,40 +54,40 @@ class UsuarioController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\usuario  $usuario
+     * @param  \App\fotografias  $fotografias
      * @return \Illuminate\Http\Response
      */
-    public function edit(usuario $usuario)
+    public function edit(fotografias $fotografias)
     {
         //
-        $usuario=usuarios::find('$id');
-        return view('usuarios.form', compact('usuario'));
+        $fotografia=fotografias::find('$id');
+        return view('fotografias.form', compact('fotografia'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\usuario  $usuario
+     * @param  \App\fotografias  $fotografias
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, usuario $usuario)
+    public function update(Request $request, fotografias $fotografias)
     {
         //
-        usuarios::find('$id')->update($request->all());
-        return redirect()->route('usuarios.index')->with('success', 'Exitosa Actualizacion');
+        fotografias::find('$id')->update($request->all());
+        return redirect()->route('fotografias.index')->with('success', 'Exitosa Actualizacion');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\usuario  $usuario
+     * @param  \App\fotografias  $fotografias
      * @return \Illuminate\Http\Response
      */
-    public function destroy(usuario $usuario)
+    public function destroy(fotografias $fotografias)
     {
         //
-        usuarios::find('$id')->delete();
-        return redirect('/usuarios');
+        fotografias::find('$id')->delete();
+        return redirect('/biblio/fotografias');
     }
 }

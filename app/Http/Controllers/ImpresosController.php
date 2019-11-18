@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\usuario;
+use App\impresos;
 use Illuminate\Http\Request;
 
-class UsuarioController extends Controller
+class ImpresosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,9 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        return view('usuarios.usuario');
+        //
+        $impresos=impresos::orderBy('id','DESC')->paginate(5);
+        return view('biblio.impresos', compact('impresos'));
     }
 
     /**
@@ -25,8 +27,6 @@ class UsuarioController extends Controller
     public function create()
     {
         //
-        return view('usuarios.form');
-
     }
 
     /**
@@ -38,23 +38,15 @@ class UsuarioController extends Controller
     public function store(Request $request)
     {
         //
-        $request->validate([
-            'nombre' => 'required',
-            'contra' => 'required',
-            'telefono' => 'required',
-            'codigo' => 'required',
-        ]);
-        usuarios::create($request->all());
-        return redirect()->route('usuarios.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\usuario  $usuario
+     * @param  \App\impresos  $impresos
      * @return \Illuminate\Http\Response
      */
-    public function show(usuario $usuario)
+    public function show(impresos $impresos)
     {
         //
     }
@@ -62,40 +54,40 @@ class UsuarioController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\usuario  $usuario
+     * @param  \App\impresos  $impresos
      * @return \Illuminate\Http\Response
      */
-    public function edit(usuario $usuario)
+    public function edit(impresos $impresos)
     {
         //
-        $usuario=usuarios::find('$id');
-        return view('usuarios.form', compact('usuario'));
+        $impresos=impresos::find('$id');
+        return view('impresos.form', compact('impresos'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\usuario  $usuario
+     * @param  \App\impresos  $impresos
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, usuario $usuario)
+    public function update(Request $request, impresos $impresos)
     {
         //
-        usuarios::find('$id')->update($request->all());
-        return redirect()->route('usuarios.index')->with('success', 'Exitosa Actualizacion');
+        impresos::find('$id')->update($request->all());
+        return redirect()->route('impresos.index')->with('success', 'Exitosa Actualizacion');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\usuario  $usuario
+     * @param  \App\impresos  $impresos
      * @return \Illuminate\Http\Response
      */
-    public function destroy(usuario $usuario)
+    public function destroy(impresos $impresos)
     {
         //
-        usuarios::find('$id')->delete();
-        return redirect('/usuarios');
+        impresos::find('$id')->delete();
+        return redirect('/biblio/ompresos');
     }
 }
